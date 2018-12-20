@@ -34,9 +34,12 @@ class App extends Component {
   }
 
   deleteTodo(index) {
-    const newTodos = this.state.todos.splice(index, 1);
-    this.setState({ newTodos });
+    const newTodos = this.state.todos.filter(todo => {
+      return todo !== this.state.todos[index];
+    })
+    this.setState({ todos: newTodos });
   }
+
 
   render() {
     return (
